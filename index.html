@@ -52,14 +52,19 @@
         }
 
         .container {
-            max-width: 400px;
-            margin: 2rem auto;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            animation: slideUp 0.5s ease-out;
-        }
+    max-width: 400px;
+    width: 90%;
+    margin: 2rem auto;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    animation: slideUp 0.5s ease-out;
+
+    position: relative;
+    left: 0;
+    right: 0;
+}
 
         @keyframes slideUp {
             from { opacity: 0; transform: translateY(30px); }
