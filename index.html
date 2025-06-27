@@ -417,15 +417,11 @@
     </div>
 
     <!-- ステップ1: 位置情報許可 -->
-   <div id="step1-content">
-            <div class="text-center mb-8">
-                <h1 class="text-3xl font-bold text-gray-800 mb-2">
-                    <i class="fas fa-map-marker-alt text-blue-500"></i>
-                    介護タクシー位置共有アプリ
-                </h1>
-                <h2 class="text-2xl font-bold text-blue-600 mb-4">「いまここ」</h2>
-                <p class="text-gray-600 text-lg">位置情報の使用を許可してください</p>
-            </div>
+   <div id="step1Container" class="container">
+        <div class="container-content">
+            <div style="font-size: 48px; margin-bottom: 1rem;">📍</div>
+            <h2>位置情報を許可してください</h2>
+            <p>「いまここ」では正確な位置情報が必要です。ブラウザから位置情報の許可を求められたら「許可」をタップしてください。</p>
             
             <div class="text-center">
                 <button onclick="requestLocation()" class="btn-primary">
