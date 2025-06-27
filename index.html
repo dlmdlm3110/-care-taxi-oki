@@ -14,22 +14,32 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #87CEEB 0%, #4169E1 100%);
-            min-height: 100vh;
-            color: #333;
+            background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+            color: #2d3436;
+            line-height: 1.6;
         }
 
-        .app-container {
+        /* スタート画面の中央配置 */
+        .start-container {
             min-height: 100vh;
             display: flex;
-            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 400px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 20px;
         }
 
         .step-indicator {
             display: flex;
             justify-content: center;
-            padding: 20px;
-            gap: 20px;
+            margin-bottom: 30px;
+            gap: 15px;
         }
 
         .step {
@@ -39,70 +49,60 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 24px;
             font-weight: bold;
+            font-size: 18px;
             color: white;
             background: rgba(255, 255, 255, 0.3);
             transition: all 0.3s ease;
         }
 
         .step.active {
-            background: #28a745;
+            background: #00b894;
             transform: scale(1.1);
-        }
-
-        .step.completed {
-            background: #28a745;
-        }
-
-        .main-content {
-            flex: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
         }
 
         .card {
             background: white;
             border-radius: 20px;
-            padding: 40px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            max-width: 500px;
-            width: 100%;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
             text-align: center;
+            margin-bottom: 20px;
         }
 
-        .location-icon {
-            font-size: 80px;
-            color: #dc3545;
-            margin-bottom: 30px;
+        .icon {
+            font-size: 48px;
+            margin-bottom: 20px;
         }
 
         h1 {
-            font-size: 28px;
-            margin-bottom: 20px;
-            color: #333;
-            font-weight: bold;
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #2d3436;
         }
 
-        .description {
-            font-size: 18px;
-            line-height: 1.6;
-            margin-bottom: 40px;
-            color: #666;
+        h2 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #2d3436;
+        }
+
+        p {
+            font-size: 16px;
+            margin-bottom: 20px;
+            color: #636e72;
         }
 
         .btn {
-            background: #28a745;
+            background: #00b894;
             color: white;
             border: none;
-            padding: 20px 40px;
-            border-radius: 12px;
-            font-size: 20px;
-            font-weight: bold;
+            padding: 15px 30px;
+            font-size: 18px;
+            border-radius: 10px;
             cursor: pointer;
             width: 100%;
+            margin: 10px 0;
             transition: all 0.3s ease;
             display: flex;
             align-items: center;
@@ -111,84 +111,98 @@
         }
 
         .btn:hover {
-            background: #218838;
+            background: #00a085;
             transform: translateY(-2px);
         }
 
-        .btn:disabled {
-            background: #ccc;
-            cursor: not-allowed;
-            transform: none;
+        .btn-secondary {
+            background: #74b9ff;
         }
 
-        .form-group {
+        .btn-secondary:hover {
+            background: #0984e3;
+        }
+
+        .btn-danger {
+            background: #e74c3c;
+        }
+
+        .btn-danger:hover {
+            background: #c0392b;
+        }
+
+        .input-group {
             margin-bottom: 20px;
             text-align: left;
         }
 
-        .form-group label {
+        label {
             display: block;
-            font-size: 18px;
+            font-size: 16px;
             font-weight: bold;
             margin-bottom: 8px;
-            color: #333;
+            color: #2d3436;
         }
 
-        .form-group input {
+        input[type="text"], input[type="tel"] {
             width: 100%;
             padding: 15px;
             font-size: 18px;
             border: 2px solid #ddd;
-            border-radius: 8px;
-            transition: border-color 0.3s;
+            border-radius: 10px;
+            transition: border-color 0.3s ease;
         }
 
-        .form-group input:focus {
+        input[type="text"]:focus, input[type="tel"]:focus {
             outline: none;
-            border-color: #28a745;
+            border-color: #00b894;
         }
 
-        .image-upload {
+        .file-input-container {
+            position: relative;
             margin-bottom: 20px;
-        }
-
-        .image-preview {
-            width: 80px;
-            height: 80px;
-            border: 2px dashed #ddd;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 10px auto;
-            overflow: hidden;
-        }
-
-        .image-preview img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
         }
 
         .file-input {
             display: none;
         }
 
-        .file-label {
-            background: #007bff;
+        .file-input-label {
+            display: block;
+            background: #74b9ff;
             color: white;
-            padding: 10px 20px;
-            border-radius: 8px;
+            padding: 15px;
+            border-radius: 10px;
             cursor: pointer;
-            display: inline-block;
-            font-size: 16px;
+            text-align: center;
+            transition: background 0.3s ease;
         }
 
-        .map-container {
+        .file-input-label:hover {
+            background: #0984e3;
+        }
+
+        .image-preview {
+            width: 64px;
+            height: 64px;
+            border-radius: 10px;
+            margin: 10px auto;
+            display: none;
+            border: 2px solid #ddd;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        /* 地図画面のスタイル */
+        #mapContainer {
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100vw;
             height: 100vh;
-            position: relative;
-            display: none;
+            z-index: 1000;
         }
 
         #map {
@@ -199,213 +213,255 @@
         .map-controls {
             position: absolute;
             bottom: 20px;
-            left: 20px;
-            right: 20px;
-            background: rgba(255, 255, 255, 0.95);
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .status-info {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .timer {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: rgba(255, 255, 255, 0.9);
-            padding: 10px 15px;
-            border-radius: 10px;
-            font-size: 18px;
-            font-weight: bold;
-            color: #007bff;
-        }
-
-        .control-buttons {
+            left: 50%;
+            transform: translateX(-50%);
             display: flex;
-            gap: 10px;
-            justify-content: center;
+            gap: 15px;
+            z-index: 1001;
         }
 
         .control-btn {
-            flex: 1;
-            padding: 15px;
+            background: rgba(255, 255, 255, 0.95);
             border: none;
+            padding: 15px 20px;
             border-radius: 10px;
             font-size: 16px;
             font-weight: bold;
             cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
             transition: all 0.3s ease;
-        }
-
-        .update-btn {
-            background: #ffc107;
-            color: #333;
-        }
-
-        .delete-btn {
-            background: #dc3545;
-            color: white;
+            min-width: 120px;
         }
 
         .control-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .update-btn {
+            background: #74b9ff;
+            color: white;
+        }
+
+        .update-btn:hover {
+            background: #0984e3;
+        }
+
+        .end-btn {
+            background: #e74c3c;
+            color: white;
+        }
+
+        .end-btn:hover {
+            background: #c0392b;
+        }
+
+        .timer-display {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            z-index: 1001;
+        }
+
+        .timer-text {
+            font-size: 18px;
+            font-weight: bold;
+            color: #0984e3;
+        }
+
+        .status-info {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            z-index: 1001;
         }
 
         .map-toggle {
             position: absolute;
             top: 20px;
-            left: 20px;
-            background: white;
+            right: 150px;
+            background: rgba(255, 255, 255, 0.95);
             border: none;
             padding: 10px;
-            border-radius: 8px;
+            border-radius: 10px;
             cursor: pointer;
-            font-size: 16px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            z-index: 1001;
+            font-size: 20px;
         }
 
-        .error-message {
-            background: #f8d7da;
-            color: #721c24;
+        .error {
+            background: #e74c3c;
+            color: white;
             padding: 15px;
-            border-radius: 8px;
-            margin: 20px 0;
-            border: 1px solid #f5c6cb;
+            border-radius: 10px;
+            margin: 10px 0;
         }
 
-        .success-message {
-            background: #d4edda;
-            color: #155724;
+        .success {
+            background: #00b894;
+            color: white;
             padding: 15px;
-            border-radius: 8px;
-            margin: 20px 0;
-            border: 1px solid #c3e6cb;
+            border-radius: 10px;
+            margin: 10px 0;
         }
 
-        .hidden {
-            display: none !important;
+        .loading {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #00b894;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
 
         @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
             .card {
-                margin: 10px;
-                padding: 30px 20px;
+                padding: 20px;
             }
-            
-            .control-buttons {
-                flex-direction: column;
+
+            .map-controls {
+                left: 20px;
+                right: 20px;
+                transform: none;
+                flex-direction: row;
+                justify-content: space-between;
             }
-            
-            .timer {
-                font-size: 16px;
-                padding: 8px 12px;
+
+            .control-btn {
+                flex: 1;
+                margin: 0 5px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="app-container">
-        <!-- ステップインジケーター -->
-        <div class="step-indicator">
-            <div class="step active" id="step1">1</div>
-            <div class="step" id="step2">2</div>
-            <div class="step" id="step3">3</div>
-        </div>
-
-        <!-- メインコンテンツ -->
-        <div class="main-content">
-            <!-- ステップ1: 位置情報許可 -->
-            <div class="card" id="location-step">
-                <div class="location-icon">📍</div>
+    <!-- ステップ1: 位置情報許可画面 -->
+    <div id="step1" class="start-container">
+        <div class="container">
+            <div class="step-indicator">
+                <div class="step active">1</div>
+                <div class="step">2</div>
+                <div class="step">3</div>
+            </div>
+            
+            <div class="card">
+                <div class="icon">📍</div>
                 <h1>位置情報を許可してください</h1>
-                <div class="description">
-                    「いまここ」では正確な位置情報が必要です。<br>
-                    ブラウザから位置情報の許可を求められたら<br>
-                    「許可」をタップしてください。
-                </div>
-                <button class="btn" id="get-location-btn">
+                <p>「いまここ」では正確な位置情報が必要です。<br>ブラウザから位置情報の許可を求められたら「許可」をタップしてください。</p>
+                <button class="btn" id="getLocationBtn">
                     📍 位置情報を取得
                 </button>
-                <div id="location-error" class="error-message hidden"></div>
-            </div>
-
-            <!-- ステップ2: 事業者情報入力 -->
-            <div class="card hidden" id="info-step">
-                <div style="font-size: 60px; margin-bottom: 20px;">👤</div>
-                <h1>事業者情報を入力</h1>
-                <div class="description">
-                    会社名と電話番号を入力してください
-                </div>
-                
-                <div class="form-group">
-                    <label for="company-name">🏢 会社名</label>
-                    <input type="text" id="company-name" placeholder="○○介護タクシー" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="phone-number">📞 電話番号</label>
-                    <input type="tel" id="phone-number" placeholder="090-1234-5678" required>
-                </div>
-
-                <div class="image-upload">
-                    <label for="logo-upload" class="file-label">📁 ロゴ画像を選択</label>
-                    <input type="file" id="logo-upload" class="file-input" accept="image/*">
-                    <div class="image-preview" id="image-preview">
-                        <span>画像なし</span>
-                    </div>
-                </div>
-
-                <div style="margin-bottom: 10px;">
-                    <button type="button" id="change-info-btn" class="btn" style="background: #6c757d; margin-bottom: 10px;">情報を変更</button>
-                    <button type="button" id="clear-saved-btn" class="btn" style="background: #dc3545; font-size: 14px; padding: 10px;">保存した情報を削除</button>
-                </div>
-
-                <button class="btn" id="register-btn">
-                    🗺️ 地図に登録する
-                </button>
-                <div id="register-error" class="error-message hidden"></div>
             </div>
         </div>
+    </div>
 
-        <!-- ステップ3: 地図表示 -->
-        <div class="map-container" id="map-container">
-            <div id="map"></div>
+    <!-- ステップ2: 事業者情報入力画面 -->
+    <div id="step2" class="container hidden">
+        <div class="step-indicator">
+            <div class="step">1</div>
+            <div class="step active">2</div>
+            <div class="step">3</div>
+        </div>
+        
+        <div class="card">
+            <div class="icon">👤</div>
+            <h2>事業者情報を入力</h2>
+            <p>会社名と電話番号を入力してください</p>
             
-            <button class="map-toggle" id="map-toggle" title="地図/航空写真切り替え">
-                🗺️
-            </button>
-            
-            <div class="timer" id="timer">
-                残り時間: 08:00:00
-            </div>
-            
-            <div class="map-controls">
-                <div class="status-info">
-                    <p><strong>👥 1台の介護タクシーが稼働中</strong></p>
-                    <p>📞 マーカーをタップして電話発信</p>
+            <form id="operatorForm">
+                <div class="input-group">
+                    <label for="companyName">🏢 会社名</label>
+                    <input type="text" id="companyName" placeholder="○○介護タクシー" required>
                 </div>
                 
-                <div class="control-buttons">
-                    <button class="control-btn update-btn" id="update-location-btn">
-                        🔄 位置更新
-                    </button>
-                    <button class="control-btn delete-btn" id="end-service-btn">
-                        🗑️ 稼働終了
-                    </button>
+                <div class="input-group">
+                    <label for="phoneNumber">📱 電話番号</label>
+                    <input type="tel" id="phoneNumber" placeholder="090-1234-5678" required>
                 </div>
+
+                <div class="file-input-container">
+                    <label for="logoFile" class="file-input-label">
+                        📁 会社ロゴを選択（任意）
+                    </label>
+                    <input type="file" id="logoFile" class="file-input" accept="image/*">
+                    <img id="imagePreview" class="image-preview" alt="プレビュー">
+                </div>
+                
+                <button type="submit" class="btn">
+                    🗺️ 地図に登録する
+                </button>
+                
+                <button type="button" class="btn btn-secondary" id="changeInfoBtn" style="display: none;">
+                    ✏️ 情報を変更
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ステップ3: 地図表示画面 -->
+    <div id="mapContainer" class="hidden">
+        <div id="map"></div>
+        
+        <div class="timer-display">
+            <div class="timer-text" id="timerDisplay">08:00:00</div>
+            <small>残り時間: 8時間後に自動削除されます</small>
+        </div>
+        
+        <div class="status-info">
+            <div>👥 <span id="operatorCount">1</span>台の介護タクシーが稼働中</div>
+            <div>📞 マーカーをタップして電話発信</div>
+        </div>
+
+        <button id="mapToggle" class="map-toggle" title="地図切り替え">🗺️</button>
+        
+        <div class="map-controls">
+            <button class="control-btn update-btn" id="updateLocationBtn">
+                🔄 位置更新
+            </button>
+            <button class="control-btn end-btn" id="endOperationBtn">
+                🗑️ 稼働終了
+            </button>
+        </div>
+    </div>
+
+    <!-- ローディング画面 -->
+    <div id="loading" class="container hidden">
+        <div class="card">
+            <div class="loading">
+                <div class="spinner"></div>
+                <p>処理中...</p>
             </div>
         </div>
     </div>
 
     <!-- Firebase SDK -->
-    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
-    
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore-compat.js"></script>
+
     <!-- Google Maps API -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8NRDN9NszAV2vnMbhej2Vh-bpqDxCuqU&libraries=geometry"></script>
 
@@ -425,220 +481,227 @@
         const db = firebase.firestore();
         const collection = db.collection('care_taxi_locations');
 
-        class ImakokoApp {
+        class CareTaxiApp {
             constructor() {
                 this.currentStep = 1;
                 this.currentPosition = null;
                 this.map = null;
                 this.markers = [];
                 this.unsubscribe = null;
-                this.currentDocId = null;
+                this.myDocumentId = null;
                 this.countdownTimer = null;
                 this.expirationTime = null;
-                this.isMapSatellite = false;
-                
+                this.isMapTypeRoad = true;
+
                 this.init();
             }
 
             init() {
-                console.log('🚀 いまここアプリ初期化開始');
-                this.loadSavedInfo();
-                this.bindEvents();
-                this.setupAutoDelete();
+                this.loadSavedData();
+                this.setupEventListeners();
+                this.setupUnloadHandlers();
             }
 
-            bindEvents() {
-                // 位置情報取得
-                document.getElementById('get-location-btn').addEventListener('click', () => {
+            loadSavedData() {
+                const savedData = localStorage.getItem('careTaxiData');
+                if (savedData) {
+                    const data = JSON.parse(savedData);
+                    document.getElementById('companyName').value = data.companyName || '';
+                    document.getElementById('phoneNumber').value = data.phoneNumber || '';
+                    
+                    if (data.customIcon) {
+                        const preview = document.getElementById('imagePreview');
+                        preview.src = data.customIcon;
+                        preview.style.display = 'block';
+                    }
+
+                    if (data.companyName && data.phoneNumber) {
+                        document.getElementById('changeInfoBtn').style.display = 'block';
+                    }
+                }
+
+                // マップタイプ設定を読み込み
+                const savedMapType = localStorage.getItem('mapType');
+                this.isMapTypeRoad = savedMapType !== 'satellite';
+            }
+
+            setupEventListeners() {
+                // 位置情報取得ボタン
+                document.getElementById('getLocationBtn').addEventListener('click', () => {
                     this.getCurrentPosition();
                 });
 
                 // フォーム送信
-                document.getElementById('register-btn').addEventListener('click', () => {
+                document.getElementById('operatorForm').addEventListener('submit', (e) => {
+                    e.preventDefault();
                     this.handleRegistration();
                 });
 
+                // 情報変更ボタン
+                document.getElementById('changeInfoBtn').addEventListener('click', () => {
+                    document.getElementById('changeInfoBtn').style.display = 'none';
+                });
+
+                // ファイル選択
+                document.getElementById('logoFile').addEventListener('change', (e) => {
+                    this.handleFileUpload(e);
+                });
+
                 // 電話番号フォーマット
-                document.getElementById('phone-number').addEventListener('input', this.formatPhoneNumber);
-
-                // 画像アップロード
-                document.getElementById('logo-upload').addEventListener('change', (e) => {
-                    this.handleImageUpload(e);
-                });
-
-                // 情報変更・削除
-                document.getElementById('change-info-btn').addEventListener('click', () => {
-                    this.showInfoForm();
-                });
-
-                document.getElementById('clear-saved-btn').addEventListener('click', () => {
-                    this.clearSavedInfo();
+                document.getElementById('phoneNumber').addEventListener('input', (e) => {
+                    this.formatPhoneNumber(e);
                 });
 
                 // 地図コントロール
-                document.getElementById('update-location-btn').addEventListener('click', () => {
+                document.getElementById('updateLocationBtn').addEventListener('click', () => {
                     this.updateLocation();
                 });
 
-                document.getElementById('end-service-btn').addEventListener('click', () => {
-                    this.endService();
+                document.getElementById('endOperationBtn').addEventListener('click', () => {
+                    this.endOperation();
                 });
 
-                document.getElementById('map-toggle').addEventListener('click', () => {
+                document.getElementById('mapToggle').addEventListener('click', () => {
                     this.toggleMapType();
                 });
             }
 
-            getCurrentPosition() {
-                console.log('📍 位置情報取得開始');
-                const btn = document.getElementById('get-location-btn');
-                const errorDiv = document.getElementById('location-error');
-                
-                btn.disabled = true;
-                btn.textContent = '位置情報取得中...';
-                errorDiv.classList.add('hidden');
+            setupUnloadHandlers() {
+                // ブラウザ閉鎖時の自動削除
+                window.addEventListener('beforeunload', () => {
+                    if (this.myDocumentId) {
+                        navigator.sendBeacon('/cleanup', JSON.stringify({id: this.myDocumentId}));
+                        this.deleteMyData();
+                    }
+                });
 
+                window.addEventListener('unload', () => {
+                    if (this.myDocumentId) {
+                        this.deleteMyData();
+                    }
+                });
+
+                document.addEventListener('visibilitychange', () => {
+                    if (document.hidden && this.myDocumentId) {
+                        this.deleteMyData();
+                    }
+                });
+            }
+
+            getCurrentPosition() {
+                this.showLoading();
+                
                 if (!navigator.geolocation) {
-                    console.error('❌ Geolocation not supported');
-                    this.showLocationError('このブラウザは位置情報をサポートしていません。');
+                    this.showError('位置情報がサポートされていません');
                     return;
                 }
 
-                const options = {
-                    enableHighAccuracy: true,
-                    timeout: 15000,
-                    maximumAge: 0
-                };
-
-                console.log('🔍 getCurrentPosition実行中', options);
-
                 navigator.geolocation.getCurrentPosition(
                     (position) => {
-                        console.log('✅ 位置情報取得成功', position);
                         this.currentPosition = {
                             lat: position.coords.latitude,
                             lng: position.coords.longitude
                         };
-                        console.log('📍 現在位置:', this.currentPosition);
-                        
-                        this.showStep(2);
-                        btn.disabled = false;
-                        btn.textContent = '📍 位置情報を取得';
+                        this.hideLoading();
+                        this.goToStep(2);
                     },
                     (error) => {
-                        console.error('❌ 位置情報取得エラー:', error);
-                        let errorMessage = '';
-                        
+                        this.hideLoading();
+                        let errorMessage = '位置情報の取得に失敗しました。';
                         switch(error.code) {
                             case error.PERMISSION_DENIED:
-                                errorMessage = '位置情報の利用が拒否されました。ブラウザの設定で位置情報を許可してください。';
+                                errorMessage = '位置情報の使用が許可されていません。ブラウザの設定を確認してください。';
                                 break;
                             case error.POSITION_UNAVAILABLE:
-                                errorMessage = '位置情報を取得できませんでした。GPS機能をオンにしてください。';
+                                errorMessage = '位置情報が取得できません。';
                                 break;
                             case error.TIMEOUT:
-                                errorMessage = '位置情報の取得がタイムアウトしました。もう一度お試しください。';
-                                break;
-                            default:
-                                errorMessage = '位置情報の取得に失敗しました。もう一度お試しください。';
+                                errorMessage = '位置情報の取得がタイムアウトしました。';
                                 break;
                         }
-                        
-                        this.showLocationError(errorMessage);
-                        btn.disabled = false;
-                        btn.textContent = '📍 位置情報を取得';
+                        this.showError(errorMessage);
                     },
-                    options
+                    {
+                        enableHighAccuracy: true,
+                        timeout: 15000,
+                        maximumAge: 0
+                    }
                 );
             }
 
-            showLocationError(message) {
-                const errorDiv = document.getElementById('location-error');
-                errorDiv.textContent = message;
-                errorDiv.classList.remove('hidden');
-            }
+            async handleRegistration() {
+                const companyName = document.getElementById('companyName').value.trim();
+                const phoneNumber = document.getElementById('phoneNumber').value.trim();
 
-            loadSavedInfo() {
-                console.log('💾 保存された情報を読み込み中');
-                const savedCompanyName = localStorage.getItem('imakoko_company_name');
-                const savedPhoneNumber = localStorage.getItem('imakoko_phone_number');
-                const savedImage = localStorage.getItem('imakoko_logo_image');
-                const savedMapType = localStorage.getItem('imakoko_map_type');
-
-                if (savedCompanyName && savedPhoneNumber) {
-                    console.log('✅ 保存された情報を発見');
-                    document.getElementById('company-name').value = savedCompanyName;
-                    document.getElementById('phone-number').value = savedPhoneNumber;
-                    
-                    if (savedImage) {
-                        const preview = document.getElementById('image-preview');
-                        preview.innerHTML = `<img src="${savedImage}" alt="ロゴ">`;
-                    }
-
-                    this.showSavedInfoMode();
+                if (!companyName || !phoneNumber) {
+                    this.showError('会社名と電話番号を入力してください');
+                    return;
                 }
 
-                if (savedMapType) {
-                    this.isMapSatellite = savedMapType === 'satellite';
+                if (!this.currentPosition) {
+                    this.showError('位置情報を取得できませんでした');
+                    return;
                 }
-            }
 
-            showSavedInfoMode() {
-                const companyInput = document.getElementById('company-name');
-                const phoneInput = document.getElementById('phone-number');
-                const logoUpload = document.getElementById('logo-upload');
-                
-                companyInput.disabled = true;
-                phoneInput.disabled = true;
-                logoUpload.disabled = true;
-                
-                document.querySelector('.image-upload').style.opacity = '0.6';
-            }
+                this.showLoading();
 
-            showInfoForm() {
-                const companyInput = document.getElementById('company-name');
-                const phoneInput = document.getElementById('phone-number');
-                const logoUpload = document.getElementById('logo-upload');
-                
-                companyInput.disabled = false;
-                phoneInput.disabled = false;
-                logoUpload.disabled = false;
-                
-                document.querySelector('.image-upload').style.opacity = '1';
-            }
+                try {
+                    // 既存データを削除
+                    await this.deleteExistingData(phoneNumber);
 
-            clearSavedInfo() {
-                if (confirm('保存された情報を削除しますか？')) {
-                    localStorage.removeItem('imakoko_company_name');
-                    localStorage.removeItem('imakoko_phone_number');
-                    localStorage.removeItem('imakoko_logo_image');
+                    // 新しいデータを登録
+                    const now = new Date();
+                    const expiresAt = new Date(now.getTime() + 8 * 60 * 60 * 1000);
                     
-                    document.getElementById('company-name').value = '';
-                    document.getElementById('phone-number').value = '';
-                    document.getElementById('image-preview').innerHTML = '<span>画像なし</span>';
-                    
-                    this.showInfoForm();
-                    
-                    alert('保存された情報を削除しました。');
+                    const customIcon = document.getElementById('imagePreview').style.display === 'block' 
+                        ? document.getElementById('imagePreview').src : null;
+
+                    const docRef = await collection.add({
+                        company_name: companyName,
+                        phone_number: phoneNumber,
+                        latitude: this.currentPosition.lat,
+                        longitude: this.currentPosition.lng,
+                        custom_icon: customIcon,
+                        created_at: now,
+                        expires_at: expiresAt
+                    });
+
+                    this.myDocumentId = docRef.id;
+                    this.expirationTime = expiresAt;
+
+                    // データを保存
+                    this.saveData({
+                        companyName,
+                        phoneNumber,
+                        customIcon
+                    });
+
+                    this.hideLoading();
+                    this.goToStep(3);
+                    this.initMap();
+                    this.startCountdown();
+
+                } catch (error) {
+                    this.hideLoading();
+                    this.showError('登録に失敗しました: ' + error.message);
                 }
             }
 
-            formatPhoneNumber(event) {
-                let value = event.target.value.replace(/\D/g, '');
-                if (value.length >= 6) {
-                    value = value.replace(/(\d{3})(\d{4})(\d{4})/, '$1-$2-$3');
-                } else if (value.length >= 3) {
-                    value = value.replace(/(\d{3})(\d{1,4})/, '$1-$2');
-                }
-                event.target.value = value;
+            async deleteExistingData(phoneNumber) {
+                const querySnapshot = await collection
+                    .where('phone_number', '==', phoneNumber)
+                    .get();
+
+                const deletePromises = querySnapshot.docs.map(doc => doc.ref.delete());
+                await Promise.all(deletePromises);
             }
 
-            handleImageUpload(event) {
+            handleFileUpload(event) {
                 const file = event.target.files[0];
                 if (!file) return;
 
                 if (file.size > 2 * 1024 * 1024) {
-                    alert('ファイルサイズは2MB以下にしてください。');
+                    this.showError('ファイルサイズは2MB以下にしてください');
                     return;
                 }
 
@@ -653,167 +716,47 @@
                         canvas.height = 32;
                         
                         ctx.drawImage(img, 0, 0, 32, 32);
-                        const resizedImage = canvas.toDataURL('image/png');
                         
-                        const preview = document.getElementById('image-preview');
-                        preview.innerHTML = `<img src="${resizedImage}" alt="ロゴ">`;
-                        
-                        localStorage.setItem('imakoko_logo_image', resizedImage);
+                        const resizedDataUrl = canvas.toDataURL('image/png');
+                        const preview = document.getElementById('imagePreview');
+                        preview.src = resizedDataUrl;
+                        preview.style.display = 'block';
                     };
                     img.src = e.target.result;
                 };
                 reader.readAsDataURL(file);
             }
 
-            showStep(step) {
-                console.log(`🔄 ステップ${step}に移動`);
-                
-                // ステップインジケーター更新
-                for (let i = 1; i <= 3; i++) {
-                    const stepEl = document.getElementById(`step${i}`);
-                    stepEl.classList.remove('active', 'completed');
-                    
-                    if (i < step) {
-                        stepEl.classList.add('completed');
-                    } else if (i === step) {
-                        stepEl.classList.add('active');
-                    }
+            formatPhoneNumber(event) {
+                let value = event.target.value.replace(/\D/g, '');
+                if (value.length >= 6) {
+                    value = value.replace(/(\d{3})(\d{4})(\d{4})/, '$1-$2-$3');
+                } else if (value.length >= 3) {
+                    value = value.replace(/(\d{3})(\d{1,4})/, '$1-$2');
                 }
-
-                // 画面切り替え
-                document.getElementById('location-step').classList.add('hidden');
-                document.getElementById('info-step').classList.add('hidden');
-                document.getElementById('map-container').style.display = 'none';
-
-                if (step === 1) {
-                    document.getElementById('location-step').classList.remove('hidden');
-                } else if (step === 2) {
-                    document.getElementById('info-step').classList.remove('hidden');
-                } else if (step === 3) {
-                    document.getElementById('map-container').style.display = 'block';
-                    this.initMap();
-                }
-
-                this.currentStep = step;
-            }
-
-            async handleRegistration() {
-                const companyName = document.getElementById('company-name').value.trim();
-                const phoneNumber = document.getElementById('phone-number').value.trim();
-                const errorDiv = document.getElementById('register-error');
-                
-                errorDiv.classList.add('hidden');
-
-                if (!companyName || !phoneNumber) {
-                    this.showRegisterError('会社名と電話番号を入力してください。');
-                    return;
-                }
-
-                if (!this.currentPosition) {
-                    this.showRegisterError('位置情報を取得してください。');
-                    return;
-                }
-
-                const btn = document.getElementById('register-btn');
-                btn.disabled = true;
-                btn.textContent = '登録中...';
-
-                try {
-                    // 既存データを削除
-                    await this.deleteExistingData(phoneNumber);
-                    
-                    // 新しいデータを登録
-                    await this.registerNewData(companyName, phoneNumber);
-                    
-                    // 情報を保存
-                    localStorage.setItem('imakoko_company_name', companyName);
-                    localStorage.setItem('imakoko_phone_number', phoneNumber);
-                    
-                    this.showStep(3);
-                    
-                } catch (error) {
-                    console.error('❌ 登録エラー:', error);
-                    this.showRegisterError('登録に失敗しました: ' + error.message);
-                } finally {
-                    btn.disabled = false;
-                    btn.textContent = '🗺️ 地図に登録する';
-                }
-            }
-
-            async deleteExistingData(phoneNumber) {
-                console.log('🗑️ 既存データを削除中:', phoneNumber);
-                
-                const query = collection.where('phone_number', '==', phoneNumber);
-                const snapshot = await query.get();
-                
-                const deletePromises = [];
-                snapshot.forEach(doc => {
-                    console.log('🗑️ 削除対象:', doc.id);
-                    deletePromises.push(doc.ref.delete());
-                });
-                
-                if (deletePromises.length > 0) {
-                    await Promise.all(deletePromises);
-                    console.log(`✅ ${deletePromises.length}件の既存データを削除`);
-                }
-            }
-
-            async registerNewData(companyName, phoneNumber) {
-                const now = new Date();
-                const expiresAt = new Date(now.getTime() + 8 * 60 * 60 * 1000);
-                
-                const data = {
-                    company_name: companyName,
-                    phone_number: phoneNumber,
-                    latitude: this.currentPosition.lat,
-                    longitude: this.currentPosition.lng,
-                    created_at: now,
-                    expires_at: expiresAt
-                };
-
-                console.log('💾 新しいデータを登録:', data);
-                const docRef = await collection.add(data);
-                this.currentDocId = docRef.id;
-                this.expirationTime = expiresAt;
-                
-                console.log('✅ 登録完了:', docRef.id);
-            }
-
-            showRegisterError(message) {
-                const errorDiv = document.getElementById('register-error');
-                errorDiv.textContent = message;
-                errorDiv.classList.remove('hidden');
+                event.target.value = value;
             }
 
             initMap() {
-                console.log('🗺️ 地図を初期化中');
-                
                 const mapOptions = {
                     center: this.currentPosition,
-                    zoom: 11,
-                    mapTypeId: this.isMapSatellite ? 
-                        google.maps.MapTypeId.SATELLITE : 
-                        google.maps.MapTypeId.ROADMAP
+                    zoom: 12,
+                    mapTypeId: this.isMapTypeRoad ? google.maps.MapTypeId.ROADMAP : google.maps.MapTypeId.SATELLITE
                 };
 
                 this.map = new google.maps.Map(document.getElementById('map'), mapOptions);
-                console.log('✅ 地図初期化完了');
-                
+                this.subscribeToOperators();
                 this.updateMapToggleButton();
-                this.subscribeToData();
-                this.startCountdown();
             }
 
-            subscribeToData() {
-                console.log('🔔 リアルタイムデータ監視開始');
-                
+            subscribeToOperators() {
                 const now = new Date();
+                
                 this.unsubscribe = collection
                     .where('expires_at', '>', now)
                     .onSnapshot((snapshot) => {
-                        console.log(`📊 データ更新: ${snapshot.docs.length}件`);
                         this.updateMarkers(snapshot.docs);
-                        this.updateStatusInfo(snapshot.docs.length);
+                        document.getElementById('operatorCount').textContent = snapshot.docs.length;
                     });
             }
 
@@ -824,33 +767,33 @@
 
                 docs.forEach(doc => {
                     const data = doc.data();
-                    const isCurrentUser = doc.id === this.currentDocId;
+                    const isMyMarker = doc.id === this.myDocumentId;
                     
-                    console.log('🎯 マーカー作成:', data.company_name, isCurrentUser ? '(自分)' : '(他者)');
-                    
-                    // カスタム画像を確認
-                    let iconUrl = null;
-                    if (isCurrentUser) {
-                        const savedImage = localStorage.getItem('imakoko_logo_image');
-                        if (savedImage) {
-                            iconUrl = savedImage;
-                        }
+                    let iconConfig;
+                    if (isMyMarker && data.custom_icon) {
+                        iconConfig = {
+                            url: data.custom_icon,
+                            scaledSize: new google.maps.Size(32, 32),
+                            origin: new google.maps.Point(0, 0),
+                            anchor: new google.maps.Point(16, 32)
+                        };
+                    } else if (isMyMarker) {
+                        iconConfig = {
+                            url: 'https://maps.google.com/mapfiles/ms/icons/red-dot.png',
+                            scaledSize: new google.maps.Size(32, 32)
+                        };
+                    } else {
+                        iconConfig = {
+                            url: 'https://maps.google.com/mapfiles/ms/icons/blue-dot.png',
+                            scaledSize: new google.maps.Size(32, 32)
+                        };
                     }
 
                     const marker = new google.maps.Marker({
                         position: { lat: data.latitude, lng: data.longitude },
                         map: this.map,
                         title: data.company_name,
-                        icon: iconUrl ? {
-                            url: iconUrl,
-                            scaledSize: new google.maps.Size(32, 32),
-                            anchor: new google.maps.Point(16, 32)
-                        } : {
-                            url: isCurrentUser ? 
-                                'https://maps.google.com/mapfiles/ms/icons/red-dot.png' :
-                                'https://maps.google.com/mapfiles/ms/icons/blue-dot.png',
-                            scaledSize: new google.maps.Size(32, 32)
-                        }
+                        icon: iconConfig
                     });
 
                     const infoWindow = new google.maps.InfoWindow({
@@ -876,154 +819,171 @@
                 });
             }
 
-            updateStatusInfo(count) {
-                const statusInfo = document.querySelector('.status-info p');
-                statusInfo.innerHTML = `<strong>👥 ${count}台の介護タクシーが稼働中</strong>`;
-            }
-
-            startCountdown() {
-                if (!this.expirationTime) return;
-
-                this.countdownTimer = setInterval(() => {
-                    const now = new Date();
-                    const timeLeft = this.expirationTime - now;
-
-                    if (timeLeft <= 0) {
-                        this.handleExpiration();
-                        return;
-                    }
-
-                    const hours = Math.floor(timeLeft / (1000 * 60 * 60));
-                    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-                    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-
-                    const timerElement = document.getElementById('timer');
-                    timerElement.textContent = `残り時間: ${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-                }, 1000);
-            }
-
-            handleExpiration() {
-                clearInterval(this.countdownTimer);
-                alert('8時間が経過したため、位置情報を削除しました。');
-                this.endService(false);
-            }
-
-            async updateLocation() {
-                if (confirm('位置情報を更新しますか？')) {
-                    try {
-                        const position = await this.getCurrentPositionPromise();
-                        this.currentPosition = {
-                            lat: position.coords.latitude,
-                            lng: position.coords.longitude
-                        };
-
-                        if (this.currentDocId) {
-                            await collection.doc(this.currentDocId).update({
-                                latitude: this.currentPosition.lat,
-                                longitude: this.currentPosition.lng,
-                                updated_at: new Date()
-                            });
-                            
-                            alert('位置情報を更新しました。');
-                        }
-                    } catch (error) {
-                        alert('位置情報の更新に失敗しました。');
-                    }
-                }
-            }
-
-            getCurrentPositionPromise() {
-                return new Promise((resolve, reject) => {
-                    navigator.geolocation.getCurrentPosition(resolve, reject, {
-                        enableHighAccuracy: true,
-                        timeout: 10000,
-                        maximumAge: 0
-                    });
-                });
-            }
-
-            async endService(showConfirm = true) {
-                if (showConfirm && !confirm('稼働を終了しますか？')) {
-                    return;
-                }
-
-                try {
-                    if (this.currentDocId) {
-                        await collection.doc(this.currentDocId).delete();
-                        console.log('✅ データ削除完了');
-                    }
-
-                    if (this.unsubscribe) {
-                        this.unsubscribe();
-                    }
-
-                    if (this.countdownTimer) {
-                        clearInterval(this.countdownTimer);
-                    }
-
-                    alert('稼働を終了しました。');
-                    window.location.reload();
-                } catch (error) {
-                    console.error('❌ 削除エラー:', error);
-                    alert('削除に失敗しました。');
-                }
-            }
-
             toggleMapType() {
-                if (!this.map) return;
-
-                this.isMapSatellite = !this.isMapSatellite;
-                
-                const mapType = this.isMapSatellite ? 
-                    google.maps.MapTypeId.SATELLITE : 
-                    google.maps.MapTypeId.ROADMAP;
-                
-                this.map.setMapTypeId(mapType);
-                this.updateMapToggleButton();
-                
-                localStorage.setItem('imakoko_map_type', this.isMapSatellite ? 'satellite' : 'roadmap');
+                if (this.map) {
+                    this.isMapTypeRoad = !this.isMapTypeRoad;
+                    const mapTypeId = this.isMapTypeRoad ? 
+                        google.maps.MapTypeId.ROADMAP : 
+                        google.maps.MapTypeId.SATELLITE;
+                    
+                    this.map.setMapTypeId(mapTypeId);
+                    this.updateMapToggleButton();
+                    
+                    // 設定を保存
+                    localStorage.setItem('mapType', this.isMapTypeRoad ? 'roadmap' : 'satellite');
+                }
             }
 
             updateMapToggleButton() {
-                const button = document.getElementById('map-toggle');
-                button.textContent = this.isMapSatellite ? '🛰️' : '🗺️';
-                button.title = this.isMapSatellite ? '地図表示に切り替え' : '航空写真に切り替え';
+                const button = document.getElementById('mapToggle');
+                button.textContent = this.isMapTypeRoad ? '🛰️' : '🗺️';
+                button.title = this.isMapTypeRoad ? '航空写真に切り替え' : '地図に切り替え';
             }
 
-            setupAutoDelete() {
-                // ブラウザ閉鎖時の自動削除
-                const deleteData = () => {
-                    if (this.currentDocId) {
-                        navigator.sendBeacon(`https://firestore.googleapis.com/v1/projects/care-taxi-okinawa/databases/(default)/documents/care_taxi_locations/${this.currentDocId}`, {
-                            method: 'DELETE'
-                        });
-                    }
-                };
+            async updateLocation() {
+                if (!this.myDocumentId) return;
 
-                window.addEventListener('beforeunload', deleteData);
-                window.addEventListener('unload', deleteData);
+                this.getCurrentPosition();
                 
-                document.addEventListener('visibilitychange', () => {
-                    if (document.visibilityState === 'hidden') {
-                        deleteData();
+                if (this.currentPosition) {
+                    try {
+                        await collection.doc(this.myDocumentId).update({
+                            latitude: this.currentPosition.lat,
+                            longitude: this.currentPosition.lng
+                        });
+                        this.showSuccess('位置情報を更新しました');
+                    } catch (error) {
+                        this.showError('位置更新に失敗しました');
+                    }
+                }
+            }
+
+            async endOperation() {
+                if (confirm('稼働を終了しますか？位置情報が削除されます。')) {
+                    await this.deleteMyData();
+                    this.showSuccess('稼働を終了しました');
+                    setTimeout(() => {
+                        location.reload();
+                    }, 2000);
+                }
+            }
+
+            async deleteMyData() {
+                if (this.myDocumentId) {
+                    try {
+                        await collection.doc(this.myDocumentId).delete();
+                        this.myDocumentId = null;
+                    } catch (error) {
+                        console.error('削除エラー:', error);
+                    }
+                }
+            }
+
+            startCountdown() {
+                if (this.countdownTimer) {
+                    clearInterval(this.countdownTimer);
+                }
+
+                this.countdownTimer = setInterval(() => {
+                    const now = new Date();
+                    const remaining = this.expirationTime - now;
+
+                    if (remaining <= 0) {
+                        clearInterval(this.countdownTimer);
+                        this.deleteMyData();
+                        this.showSuccess('8時間が経過したため自動削除されました');
+                        setTimeout(() => {
+                            location.reload();
+                        }, 3000);
+                        return;
+                    }
+
+                    const hours = Math.floor(remaining / (1000 * 60 * 60));
+                    const minutes = Math.floor((remaining % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((remaining % (1000 * 60)) / 1000);
+
+                    document.getElementById('timerDisplay').textContent = 
+                        `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+                }, 1000);
+            }
+
+            saveData(data) {
+                localStorage.setItem('careTaxiData', JSON.stringify(data));
+            }
+
+            goToStep(step) {
+                // すべてのステップを非表示
+                document.getElementById('step1').classList.add('hidden');
+                document.getElementById('step2').classList.add('hidden');
+                document.getElementById('mapContainer').classList.add('hidden');
+
+                // 指定されたステップを表示
+                if (step === 1) {
+                    document.getElementById('step1').classList.remove('hidden');
+                } else if (step === 2) {
+                    document.getElementById('step2').classList.remove('hidden');
+                } else if (step === 3) {
+                    document.getElementById('mapContainer').classList.remove('hidden');
+                }
+
+                this.currentStep = step;
+                this.updateStepIndicator();
+            }
+
+            updateStepIndicator() {
+                const steps = document.querySelectorAll('.step');
+                steps.forEach((step, index) => {
+                    if (index + 1 <= this.currentStep) {
+                        step.classList.add('active');
+                    } else {
+                        step.classList.remove('active');
                     }
                 });
             }
+
+            showLoading() {
+                document.getElementById('loading').classList.remove('hidden');
+            }
+
+            hideLoading() {
+                document.getElementById('loading').classList.add('hidden');
+            }
+
+            showError(message) {
+                const errorDiv = document.createElement('div');
+                errorDiv.className = 'error';
+                errorDiv.textContent = message;
+                document.body.appendChild(errorDiv);
+                
+                setTimeout(() => {
+                    errorDiv.remove();
+                }, 5000);
+            }
+
+            showSuccess(message) {
+                const successDiv = document.createElement('div');
+                successDiv.className = 'success';
+                successDiv.textContent = message;
+                document.body.appendChild(successDiv);
+                
+                setTimeout(() => {
+                    successDiv.remove();
+                }, 3000);
+            }
         }
 
-        // アプリ開始
+        // アプリケーション開始
         document.addEventListener('DOMContentLoaded', () => {
-            console.log('🚀 DOM読み込み完了 - いまここアプリ開始');
-            new ImakokoApp();
+            new CareTaxiApp();
         });
     </script>
 </body>
 </html>
     <script id="html_badge_script1">
         window.__genspark_remove_badge_link = "https://www.genspark.ai/api/html_badge/" +
-            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDjvvdOicPi9VaOe3E2xMgONuFyEr9lftr5aT5VJ4gPKgJPs9EONg7MrBwx9ZTRGW42CsmLf3AzhmvbyCENzqFBPeU3nte%2B6QF%2BS9u%2FDNJ%2BndWWNi1O90fO7axI74RHd6qVRnPMaID3UUzU5XFgDi6tr7BaZMCQ8kAuXgyxIO1shzzRHmn%2FoqkbVQPsKHd5Ld47HPuROdHc%2FHnTUNDoxLasg9bp4I%2FD0mMtPQFEps0ZffvThKi5s9OlZq4AKFuEu7ULkCrNjmSOLY4%2BN2eI4xoXC%2FISBE4grmjqvpL%2B1Imn6SPaaS1zWZbaKjITCcQXYd8eSFEFXdMxUj7qQraXSJ%2B%2FnJp43DFiYjZZi%2Bq4rMaCPXJqx2sP7VsMKpzHwmyjzCTyqv2CGxlZDAPdREo8sHFv0aiEYVHnyTeZj8NlorRN4orXZ2vKMU3inmeLP8DxII1E%2FPAYBhxOcYUc82kuuxyzxjBRpVzex4DnI4m7ojNXtVxMx6HNDoH7E7j8tb1Gn9n%2BETnwyLpEKPFU6JUapKbXU%3D";
+            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDjE6W3X%2Fhr7WE1Sl3Dyhbp4dzWI4qyy%2BBFvg70qEA2JYvN%2FBbGIXpGL3luDT27nwj7vW7D8bILLG4QGMPQaW7Yk2eS8rc9gGmogG%2FWaxC%2BAe2ErWGiUR%2F7KLPBEVOz721%2BSvpPDVjHss%2BcpucJWE2dRAMwnSjcgST%2BSAi3PJbXzgQxxq2rvW%2BdDBQ6OyYtIHub1X4Ds4KfqSgzm524jgRTeHeV8M9PCD%2ByYH4Xb60hU5FnQFte0XHoec3z%2FSb%2FXUaLve75ET8lCDtg%2F%2FFeO0eVfA6ltW7B%2FcYDyElcgLhmGteJW6psoPJ5WrfifqMZ1rFmjsNWOXWVnQrxq9hITKBxOWs%2BvVyc%2BmuQbWKN4hv82LxxRTh8Ny3yHW5wCEh5NCbXu3SOiluYOvDuVFyp4t7MVgbeonJdBapDl8yzZCndn5S2NsVIW6V0%2FY2uvMvkwGKexgyfcZ0ESpjuihvwnnNV53rpqawDarshTrsyHccIrkEL%2BNUHAtnf29LzCAm%2FcEIg%3D%3D";
         window.__genspark_locale = "ja-JP";
-        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDjvvdOicPi9VaOe3E2xMgONuFyEr9lftr5aT5VJ4gPKgJPs9EONg7MrBwx9ZTRGW42CsmLf3AzhmvbyCENzqFBPeU3nte+6QF+S9u/DNJ+ndWWNi1O90fO7axI74RHd6qVRnPMaID3UUzU5XFgDi6tr7BaZMCQ8kAuXgyxIO1shzzRHmn/oqkbVQPsKHd5Ld47HPuROdHc/HnTUNDoxLasg9bp4I/D0mMtPQFEps0ZffvThKi5s9OlZq4AKFuEu7ULkCrNjmSOLY4+N2eI4xoXC/ISBE4grmjqvpL+1Imn6SPaaS1zWZbaKjITCcQXYd8eSFEFXdMxUj7qQraXSJ+/nJp43DFiYjZZi+q4rMaCPXJqx2sP7VsMKpzHwmyjzCTyqv2CGxlZDAPdREo8sHFv0aiEYVHnyTeZj8NlorRN4orXZ2vKMU3inmeLP8DxII1E/PAYBhxOcYUc82kuuxyzxjBRpVzex4DnI4m7ojNXtVxMx6HNDoH7E7j8tb1Gn9n+ETnwyLpEKPFU6JUapKbXU=";
+        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDjE6W3X/hr7WE1Sl3Dyhbp4dzWI4qyy+BFvg70qEA2JYvN/BbGIXpGL3luDT27nwj7vW7D8bILLG4QGMPQaW7Yk2eS8rc9gGmogG/WaxC+Ae2ErWGiUR/7KLPBEVOz721+SvpPDVjHss+cpucJWE2dRAMwnSjcgST+SAi3PJbXzgQxxq2rvW+dDBQ6OyYtIHub1X4Ds4KfqSgzm524jgRTeHeV8M9PCD+yYH4Xb60hU5FnQFte0XHoec3z/Sb/XUaLve75ET8lCDtg//FeO0eVfA6ltW7B/cYDyElcgLhmGteJW6psoPJ5WrfifqMZ1rFmjsNWOXWVnQrxq9hITKBxOWs+vVyc+muQbWKN4hv82LxxRTh8Ny3yHW5wCEh5NCbXu3SOiluYOvDuVFyp4t7MVgbeonJdBapDl8yzZCndn5S2NsVIW6V0/Y2uvMvkwGKexgyfcZ0ESpjuihvwnnNV53rpqawDarshTrsyHccIrkEL+NUHAtnf29LzCAm/cEIg==";
     </script>
     
     <script id="html_notice_dialog_script" src="https://www.genspark.ai/notice_dialog.js"></script>
