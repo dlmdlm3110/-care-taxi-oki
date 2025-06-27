@@ -416,20 +416,18 @@
         <div class="step inactive" id="step3">3</div>
     </div>
 
-    <!-- ステップ1: 位置情報許可 -->
-   <div id="step1Container" class="container">
+       <!-- ステップ1: 位置情報許可 -->
+    <div id="step1Container" class="container">
         <div class="container-content">
             <div style="font-size: 48px; margin-bottom: 1rem;">📍</div>
             <h2>位置情報を許可してください</h2>
             <p>「いまここ」では正確な位置情報が必要です。ブラウザから位置情報の許可を求められたら「許可」をタップしてください。</p>
-            
-            <div class="text-center">
-                <button onclick="requestLocation()" class="btn-primary">
-                    <i class="fas fa-location-arrow mr-2"></i>
-                    位置情報を許可する
-                </button>
-            </div>
+            <button class="btn btn-primary" onclick="requestLocation()">
+                <i class="fas fa-map-marker-alt"></i>
+                位置情報を取得
+            </button>
         </div>
+    </div>
     <!-- ステップ2: 事業者情報入力 -->
     <div id="step2Container" class="container hidden">
         <div class="container-content">
