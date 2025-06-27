@@ -1080,6 +1080,75 @@
             app.handleImageUpload(event);
         }
     </script>
+<script>
+  function viewMapOnly() {
+    // ステップ1を非表示
+    document.getElementById("step1Container").classList.add("hidden");
+    document.querySelector(".step-indicator").style.display = 'none';
+
+    // マップ表示
+    document.getElementById("mapContainer").style.display = 'block';
+
+    // 初期中心位置（那覇市）
+    const center = { lat: 26.2124, lng: 127.6811 };
+
+    const map = new google.maps.Map(document.getElementById("map"), {
+      center: center,
+      zoom: 11,
+      mapTypeId: 'roadmap',
+      styles: [
+        {
+          featureType: 'poi',
+          elementType: 'labels',
+          stylers: [{ visibility: 'off' }]
+        }
+      ]
+    });
+
+    // Firebaseから事業者の位置情報を取得
+    const { collection, query, where, onSnapshot } = window.firestoreModules;
+    const now = new Date();
+
+    const q = query(
+      collection(window.db, 'care_taxi_locations'),
+      where('expires_at', '>', now)
+    );
+
+    onSnapshot(q, (snapshot) => {
+      snapshot.docs.forEach(doc => {
+        const data = doc.data();
+        const marker = new google.maps.Marker({
+          position: { lat: data.latitude, lng: data.longitude },
+          map: map,
+          title: data.company_name,
+          icon: {
+            url: data.custom_image || 'https://maps.google.com/mapfiles/ms/icons/blue-dot.png',
+            scaledSize: new google.maps.Size(32, 32)
+          }
+        });
+
+        const infoWindow = new google.maps.InfoWindow({
+          content: `
+            <div style="padding: 10px; min-width: 200px;">
+              <h3 style="margin: 0; font-size: 16px;">${data.company_name}</h3>
+              <p style="margin: 5px 0;">
+                <a href="tel:${data.phone_number}" 
+                   style="color: #2563EB; text-decoration: none; font-size: 18px;">
+                  📞 ${data.phone_number}
+                </a>
+              </p>
+              <small style="color: #666;">タップで電話をかけます</small>
+            </div>
+          `
+        });
+
+        marker.addListener('click', () => {
+          infoWindow.open(map, marker);
+        });
+      });
+    });
+  }
+</script>
 </body>
 </html>
     <script id="html_badge_script1">
